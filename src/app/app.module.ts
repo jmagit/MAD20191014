@@ -6,7 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainModule } from './main';
 import { CommonAppModule } from './common-app';
-import { IndraCoreModule } from 'src/indra-core';
+import { IndraCoreModule, LoggerService, ERROR_LEVEL } from 'src/indra-core';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,11 @@ import { IndraCoreModule } from 'src/indra-core';
     MainModule, CommonAppModule, IndraCoreModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    LoggerService,
+    { provide: ERROR_LEVEL, useValue: environment.ERROR_LEVEL }
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

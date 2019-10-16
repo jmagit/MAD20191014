@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from '../common-app';
-import { LoggerService } from 'src/indra-core';
+import { LoggerService, ElipsisPipe } from 'src/indra-core';
 
 @Component({
   selector: 'app-demos',
@@ -16,6 +16,7 @@ export class DemosComponent implements OnInit {
     {id: 4, nombre: 'a coruña'},
   ];
   idProvincia = 2;
+  fontsize = 10;
 
   resultados: string = null;
   visible = true;
@@ -24,7 +25,8 @@ export class DemosComponent implements OnInit {
   constructor(public notify: NotificationService, private out: LoggerService) { }
 
   saluda() {
-    this.resultados = `Hola ${this.nombre}`;
+    const cnv = new ElipsisPipe();
+    this.resultados = `Hola ${cnv.transform(this.nombre, 10)}`;
   }
   despide() {
     this.resultados = `Adios ${this.nombre}`;

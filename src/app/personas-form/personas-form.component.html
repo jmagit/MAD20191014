@@ -14,9 +14,11 @@
         <br>
         <b>Apellidos:</b>
         <input type="text" id="apellidos" name="apellidos" [(ngModel)]="VM.Elemento.apellidos" 
-            #apellidos="ngModel" minlength="2" maxlength="10">
+            #apellidos="ngModel" minlength="2" maxlength="10" uppercase>
         <span class="error" [hidden]="!apellidos?.errors?.minlength && !apellidos?.errors?.maxlength">
             Debe tener entre 2 y 10 letras.</span>
+        <span class="error" [hidden]="!apellidos?.errors?.uppercase">
+            {{apellidos?.errors?.uppercase}}.</span>
         <br>
         <b>Edad:</b>
         <input type="number" id="edad" name="edad" [(ngModel)]="VM.Elemento.edad" 

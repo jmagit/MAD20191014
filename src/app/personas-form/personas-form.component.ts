@@ -15,7 +15,7 @@ export class PersonasDAOService extends RESTDAOService<any, number> {
   selector: 'app-personas-form',
   templateUrl: './personas-form.component.html',
   styleUrls: ['./personas-form.component.css'],
-  // providers: [NotificationService]
+  providers: [NotificationService]
 })
 export class PersonasFormComponent implements OnInit {
   VM = {

@@ -6,6 +6,7 @@ import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { PersonasListComponent, PersonasViewComponent, PersonasEditComponent, PersonasAddComponent } from './personas';
 import { PageNotFoundComponent } from './main/page-not-found/page-not-found.component';
 import { AuthGuard } from './security';
+import { BlogListComponent, BlogAddComponent, BlogEditComponent, BlogViewComponent } from './blog';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent},
@@ -18,12 +19,12 @@ const routes: Routes = [
   { path: 'personas/:id', component: PersonasViewComponent},
   { path: 'personas/:id/:kk', component: PersonasViewComponent},
   { path: 'pepito/grillo', redirectTo: '/personas/2'},
-  { path: 'empleados', children: [
-    { path: '', component: PersonasListComponent},
-    { path: 'add', component: PersonasAddComponent},
-    { path: ':id/edit', component: PersonasEditComponent},
-    { path: ':id', component: PersonasViewComponent},
-    { path: ':id/:kk', component: PersonasViewComponent},
+  { path: 'blog', children: [
+    { path: '', component: BlogListComponent},
+    { path: 'add', component: BlogAddComponent},
+    { path: ':id/edit', component: BlogEditComponent},
+    { path: ':id', component: BlogViewComponent},
+    { path: ':id/:kk', component: BlogViewComponent},
   ]},
   { path: 'config', loadChildren: () => import('./config/config.module').then(mod => mod.ConfigModule)},
   { path: '404.html', component: PageNotFoundComponent},

@@ -20,8 +20,8 @@ export class PersonasDAOService extends RESTDAOService<any, number> {
 export class PersonasFormComponent implements OnInit {
   VM = {
     //Elemento: null
-    Elemento: {  }
-    // Elemento: { id: 1, nombre: 'Pepito', apellidos: 'Grillo', edad: 101 }
+    // Elemento: {  }
+    Elemento: { id: 1, nombre: 'Pepito', apellidos: 'Grillo', edad: 101 }
   }
   constructor(private dao: PersonasDAOService, private notify: NotificationService) { }
 

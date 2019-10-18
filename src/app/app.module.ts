@@ -21,6 +21,7 @@ import { PersonasFormComponent } from './personas-form/personas-form.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PersonasModule, PersonasViewModelService, PersonasViewModelMockService } from './personas';
 import { AuthInterceptor, LoggingInterceptor, SecurityModule } from './security';
+import { BlogModule } from './blog';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { AuthInterceptor, LoggingInterceptor, SecurityModule } from './security'
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
     MainModule, CommonAppModule, IndraCoreModule,
-    PersonasModule, SecurityModule,
+    PersonasModule, SecurityModule, BlogModule,
     AppRoutingModule
   ],
   providers: [

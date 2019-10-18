@@ -19,7 +19,7 @@ import { DinamicoComponent } from './dinamico/dinamico.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { PersonasFormComponent } from './personas-form/personas-form.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { PersonasModule } from './personas';
+import { PersonasModule, PersonasViewModelService, PersonasViewModelMockService } from './personas';
 import { AuthInterceptor, LoggingInterceptor, SecurityModule } from './security';
 
 @NgModule({
@@ -40,6 +40,9 @@ import { AuthInterceptor, LoggingInterceptor, SecurityModule } from './security'
     LoggerService,
     { provide: ERROR_LEVEL, useValue: environment.ERROR_LEVEL },
     { provide: LOCALE_ID, useValue: 'es-ES' },
+    PersonasViewModelService,
+    // { provide: PersonasViewModelService, useClass: PersonasViewModelService},
+//    { provide: PersonasViewModelService, useClass: PersonasViewModelMockService},
     { provide: HTTP_INTERCEPTORS, useClass: AjaxWaitInterceptor, multi: true, },
     { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true, },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true, },

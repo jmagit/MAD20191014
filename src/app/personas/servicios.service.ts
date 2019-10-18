@@ -4,6 +4,7 @@ import { NotificationService } from '../common-app';
 import { LoggerService } from 'src/indra-core';
 import { RESTDAOService } from '../base-code/dao';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,17 +15,16 @@ export class PersonasDAOService extends RESTDAOService<any, any> {
   }
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class PersonasViewModelService {
   protected modo: ModoCRUD = 'list';
   protected listado: Array<any> = [];
   protected elemento: any = {};
   protected idOriginal: any = null;
+  protected listURL = '/personas';
 
   constructor(protected notify: NotificationService, protected out: LoggerService,
-              protected dao: PersonasDAOService) { }
+              protected dao: PersonasDAOService, protected router: Router) { }
 
   public get Modo() { return this.modo; }
   public get Listado() { return this.listado; }
@@ -75,7 +75,8 @@ export class PersonasViewModelService {
   public cancel() {
     this.elemento = {};
     this.idOriginal = null;
-    this.list();
+    //this.list();
+    this.router.navigateByUrl(this.listURL);
   }
   public send() {
     switch (this.modo) {

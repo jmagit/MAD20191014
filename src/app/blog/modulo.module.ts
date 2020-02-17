@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { IndraCoreModule } from 'src/indra-core';
 import { CommonAppModule } from '../common-app';
 import { RouterModule } from '@angular/router';
-import {EditorModule} from 'primeng/editor';
-import {InplaceModule} from 'primeng/inplace';
+// import {EditorModule} from 'primeng/editor';
+// import {InplaceModule} from 'primeng/inplace';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -17,9 +17,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     BLOG_COMPONENTES
   ],
   imports: [
-    CommonModule, FormsModule, RouterModule.forChild([]), 
+    CommonModule, FormsModule, RouterModule.forChild([]),
     IndraCoreModule, CommonAppModule,
-    NgbModule, EditorModule, InplaceModule,
+    NgbModule, //EditorModule, InplaceModule,
   ]
 })
 export class BlogModule { }
